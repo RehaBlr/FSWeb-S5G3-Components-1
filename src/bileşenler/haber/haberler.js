@@ -115,3 +115,120 @@ const data = [
   Adım 5: Veri dizisine yeni haber nesnesi eklemeyi deneyin. Diğer verilerle aynı yapıda olmasına dikkat edin.
   Eklediğiniz yeni haberi görmek için sayfayı yenileyin.
 */
+
+function haberYapici(newsArr) {
+  const newsDiv = document.createElement("div");
+  newsDiv.classList.add("article");
+
+  const newsH2 = document.createElement("h2");
+  newsH2.textContent = newsArr.baslik;
+
+  const newsP = document.createElement("p");
+  newsP.classList.add("tarih");
+  newsP.textContent = newsArr.tarih;
+
+  const newsHp1 = document.createElement("p");
+  newsHp1.textContent = newsArr.ilkParagraf;
+
+  const newsHp2 = document.createElement("p");
+  newsHp2.textContent = newsArr.ikinciParagraf;
+
+  const newsHp3 = document.createElement("p");
+  newsHp3.textContent = newsArr.ucuncuParagraf;
+
+  const newsButton = document.createElement("button");
+  newsButton.classList.add("expandButton");
+  newsButton.textContent = "+";
+
+  newsButton.addEventListener("click", function (e) {
+    newsDiv.classList.toggle("article-open");
+  });
+  newsDiv.appendChild(newsH2);
+  newsDiv.appendChild(newsP);
+  newsDiv.appendChild(newsHp1);
+  newsDiv.appendChild(newsHp2);
+  newsDiv.appendChild(newsHp3);
+  newsDiv.appendChild(newsButton);
+
+  document.querySelector(".articles").appendChild(newsDiv);
+}
+
+data.map(haberYapici);
+
+// // const haberlerDiv = document.querySelector(".articles");
+
+// // function haberYapici(haberlerData) {
+// //   const dynamicHaberNodeList = haberlerData.map((haberData) => {
+// //     const haberDiv = document.createElement("div");
+// //     haberDiv.classList.add("article");
+
+// //     const haberBaslik = document.createElement("h2");
+// //     const haberTarih = document.createElement("p");
+// //     haberTarih.classList.add("tarih");
+
+// //     haberBaslik.textContent = haberData.baslik;
+// //     haberTarih.textContent = haberData.tarih;
+
+// //     const ilkParagraf = document.createElement("p");
+// //     const ikinciParagraf = document.createElement("p");
+// //     const ucuncuParagraf = document.createElement("p");
+
+// //     ilkParagraf.textContent = haberData.ilkParagraf;
+// //     ikinciParagraf.textContent = haberData.ikinciParagraf;
+// //     ucuncuParagraf.textContent = haberData.ucuncuParagraf;
+
+// //     const expandButton = document.createElement("button");
+// //     expandButton.classList.add("expandButton");
+// //     expandButton.textContent = "+";
+
+// //     haberDiv.append(
+// //       haberBaslik,
+// //       haberTarih,
+// //       ilkParagraf,
+// //       ikinciParagraf,
+// //       ucuncuParagraf,
+// //       expandButton
+// //     );
+
+// //     expandButton.addEventListener("click", () => {
+// //       haberDiv.classList.toggle("article-open");
+// //     });
+
+// //     // return haberDiv;
+// //     haberlerDiv.appendChild(haberDiv);
+// //   });
+
+// //   return dynamicHaberNodeList;
+// // }
+
+// // haberYapici(data);
+
+// // // const haberlerDiv = document.querySelector(".articles");
+
+// // // function haberYapici(haberlerData) {
+// // //   const dynamicHaberNodeList = haberlerData.map((haberData) => {
+// // //     const haberDiv = document.createElement("div");
+// // //     haberDiv.classList.add("article");
+
+// // //     haberDiv.innerHTML += `<h2>${haberData.baslik}</h2>`;
+// // //     haberDiv.innerHTML += `<p class ="tarih">${haberData.tarih}</p>`;
+
+// // //     haberDiv.innerHTML += `<p>${haberData.ilkParagraf}</p>`;
+// // //     haberDiv.innerHTML += `<p>${haberData.ikinciParagraf}</p>`;
+// // //     haberDiv.innerHTML += `<p>${haberData.ucuncuParagraf}</p>`;
+// // //     haberDiv.innerHTML += `<button class ="expandButton">+</button>`;
+
+// // //     const expandButton = haberDiv.querySelector(".expandButton");
+
+// // //     expandButton.addEventListener("click", () => {
+// // //       haberDiv.classList.toggle("article-open");
+// // //     });
+
+// // //     // return haberDiv;
+// // //     haberlerDiv.appendChild(haberDiv);
+// // //   });
+
+// // //   return dynamicHaberNodeList;
+// // // }
+
+// // // haberYapici(data);
